@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <!--Stylesheet-->
-    <link rel="stylesheet" href="login.component.css">
+    <link  href="/src/styles.css" type="text/css">  
     
 </head>
 <body>
@@ -46,23 +46,28 @@
                                 </div>
                             </form>
                             <div class="sign-up-form">
+                                <form [formGroup]="registerForm" novalidate="">
                                 <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="user" type="text" class="input" placeholder="Create your Username">
+                                    <label for="displayName" class="label">Display Name</label>
+                                    <input id="displayName" formControlName="displayName" type="text" class="input" placeholder="Enter your name">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password"
-                                        placeholder="Create your password">
+                                    <label for="userName" class="label">Username</label>
+                                    <input id="username" name="userName" formControlName="userName" type="text" class="input" placeholder="Enter your Username">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Repeat Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password"
-                                        placeholder="Repeat your password">
+                                    <label for="password" class="label">Password</label>
+                                    <input id="password" formControlName="password" type="password" class="input" data-type="password"
+                                        placeholder="Enter your password">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Email Address</label>
-                                    <input id="pass" type="text" class="input" placeholder="Enter your email address">
+                                    <label for="confirmPassword" class="label">Confirm Password</label>
+                                    <input id="confirmPassword"  formControlName="confirmPassword" type="password" class="input" data-type="password"
+                                        placeholder="Confirm your password">
+                                </div>
+                                <div class="group">
+                                    <label for="email" class="label">Email Address</label>
+                                    <input id="email" formControlName="email" type="text" class="input" placeholder="Enter your email address">
                                 </div>
                                 <div class="group">
                                     <button class="button" (click)="register()">Register</button>
@@ -71,6 +76,7 @@
                                 <div class="foot">
                                     <label for="tab-1">Already Member?</label>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

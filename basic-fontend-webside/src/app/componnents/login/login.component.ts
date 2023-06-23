@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
   }
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
+      displayName: ['', Validators.required],
       userName: ['',Validators.required],
-      password: ['',Validators.required],
+      password: ['',Validators.required,],
       confirmPassword: ['',Validators.required,Validators.minLength(6)],
       email: ['',Validators.required],
     })
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(new LoginRequest(username, password))
         .subscribe(response => {
           this.userService.setJWT(response.content.jwt ,response.content.displayName);
-          this.route.navigate(['dashboard/default']);
+          this.route.navigate(['home']);
         });
     }
   }
@@ -65,9 +66,11 @@ export class LoginComponent implements OnInit {
     let password = this.registerForm.controls['password'].value;
     let confirmPassword = this.registerForm.controls['confirmPassword'].value;
     let email = this.registerForm.controls['email'].value;
+    let displayName = this.registerForm.controls['displayName'].value;
     if(this.registerForm.valid && this.checkPasswordsMatch(password, confirmPassword)){
-      this.userService.createUser(new UserRegister(username, password, email))
+      this.userService.createUser(new UserRegister(username, password, email, displayName))
         .subscribe(response => {
+          response.hasErrors = false;
           this.route.navigate(['login']);
         });
     }

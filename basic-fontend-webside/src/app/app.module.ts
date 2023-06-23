@@ -14,6 +14,9 @@ import { LoginComponent } from './componnents/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common';
 import {  HttpClientModule } from '@angular/common/http';
+import { RightSidebarComponent } from './componnents/page-structure/right-sidebar/right-sidebar.component';
+import { LeftSidebarComponent } from './componnents/page-structure/left-sidebar/left-sidebar.component';
+import { ContentComponent } from './componnents/page-structure/content/content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,10 @@ import {  HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     ContentLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    RightSidebarComponent,
+    LeftSidebarComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

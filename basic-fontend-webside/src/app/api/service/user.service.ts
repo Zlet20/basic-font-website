@@ -13,6 +13,8 @@ import jwt_decode from 'jwt-decode';
 export class UserService {
     private _apiEndpoint = `${environment.api}users`
     private _apiLogin = `${environment.api}auth/login`;
+    private _apiRegister = `${environment.api}auth/register`;
+
 
     private _$displayName: BehaviorSubject<string> = new BehaviorSubject('');
   public readonly $displayName: Observable<string> = this._$displayName.asObservable();
@@ -29,7 +31,7 @@ export class UserService {
 
     createUser(user: UserRegister): Observable<Response<UserRp>>{
 
-        return this.httpClient.post<Response<UserRp>>(this._apiEndpoint, user);
+        return this.httpClient.post<Response<UserRp>>(this._apiRegister, user);
 
     }
 
