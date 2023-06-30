@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
     providedIn: 'root',
 })
 export class UserService {
-    private _apiEndpoint = `${environment.api}users`
+    private _apiMyProfile = `${environment.api}users/me`
     private _apiLogin = `${environment.api}auth/login`;
     private _apiRegister = `${environment.api}auth/register`;
 
@@ -20,6 +20,8 @@ export class UserService {
   public readonly $displayName: Observable<string> = this._$displayName.asObservable();
   private _$isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public readonly $isLogin: Observable<boolean> = this._$isLogin.asObservable();
+  private _$userCurrent: BehaviorSubject<UserRp> = new BehaviorSubject(new UserRp());
+  public readonly $userCurrent: Observable<UserRp> = this._$userCurrent.asObservable();
 
   constructor(protected httpClient: HttpClient) { 
     this._getDisplayName();
@@ -29,17 +31,6 @@ export class UserService {
     });
   }
 
-    createUser(user: UserRegister): Observable<Response<UserRp>>{
-
-        return this.httpClient.post<Response<UserRp>>(this._apiRegister, user);
-
-    }
-
-    login(rq: LoginRequest): Observable<Response<LoginResponse>>{
-        return this.httpClient.post<Response<LoginResponse>>(this._apiLogin, rq);
-
-    }   
-   
 
   public setJWT(jwt: string, displayName: string): void{
     localStorage.setItem('jwt', jwt);
@@ -85,6 +76,29 @@ export class UserService {
     let jwt = localStorage.getItem('jwt');
     return jwt  == null ? '' : jwt ;
   }
+  public logout(): void{
+    localStorage.setItem('jwt', '');
+    this._$userCurrent.next(null);
+  }
+
+  public setUserCurrent(user: UserRp): void{
+    this._$userCurrent.next(user);
+  }
+  getMyProfile(): Observable<Response<UserRp>>{
+    return this.httpClient.get<Response<UserRp>>(this._apiMyProfile);
+}
+
+  
+  createUser(user: UserRegister): Observable<Response<UserRp>>{
+
+    return this.httpClient.post<Response<UserRp>>(this._apiRegister, user);
+
+}
+
+login(rq: LoginRequest): Observable<Response<LoginResponse>>{
+    return this.httpClient.post<Response<LoginResponse>>(this._apiLogin, rq);
+
+}   
 
 }
 

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginRequest, UserRegister } from 'src/app/api/model/user.model';
 import { UserService } from 'src/app/api/service/user.service';
+import { LeftSidebarComponent } from '../page-structure/left-sidebar/left-sidebar.component';
 
 @Component({
   selector: 'app-login',
@@ -56,7 +57,10 @@ export class LoginComponent implements OnInit {
       this.userService.login(new LoginRequest(username, password))
         .subscribe(response => {
           this.userService.setJWT(response.content.jwt ,response.content.displayName);
+          this.userService.getMyProfile().subscribe(rp => this.userService.setUserCurrent(rp.content));
           this.route.navigate(['home']);
+          LeftSidebarComponent.arguments.signInActive=false;
+          LeftSidebarComponent.arguments.isLogin=true;
         });
     }
   }

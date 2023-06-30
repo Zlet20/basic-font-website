@@ -97,6 +97,68 @@ header {
   font-family: serif;
 }
 
+.navbar {
+  width: 100%;
+  background-color: #0a0a0a;
+  overflow: auto;
+  padding-inline: 10px;
+  color: white;
+
+}
+#logo {
+  pointer-events: none;
+  width: 40%;
+  float: left;
+  color: greenyellow;
+  text-align: center;
+  font-size: 25px;
+}
+
+.navbar a {
+  float: right;
+  color: white;
+  text-align: center;
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #242323;
+  border-radius: 5px;
+}
+
+/*search bar*/
+.navbar input[type=text] {
+  float: left;
+  margin: 8px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 16px;
+  font-size: 25px;
+}
+.navbar .search-container button {
+  float: left;
+  padding: 6px 10px;
+  margin-top: 5px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.navbar .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
 nav {
   position: fixed;
   width: 100%;
@@ -176,8 +238,8 @@ section {
 
 body{
 	margin:0;
-	color:#6a6f8c;
-	background:#2a9981;
+	color:#242529;
+	background:#eef5f3;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 
@@ -332,53 +394,41 @@ a{color:inherit;text-decoration:none}
 ::placeholder{
 color: #dfdfdf;
 } 
-#content{
+.content{
+  margin-top: 30px;
   margin-left: 300px;
   margin-right: 300px;
   height: fit-content ;
-  width: 60%;
-  background: #ca3535
-}
+  width: 70%;
+  color: #0a0a0a;
+  }
 .footer{
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  background: rgb(117, 111, 111);
+  background: #0a0a0a(117, 111, 111);
   width: 100%;
-  height: 15%;
+  height: 10%;
   text-align: center;
-  color: #111;
-}
-h1.footer{
-  text-align: center;
-  color: black;
+  color: greenyellow;
 }
 
-#left_sidebar{
-  float:left;
-  width: 20%;
-  height: 400px;
-  background: blue;
-}
-
-
-#right_sidebar{
-  float:right;
-  width: 20%;
-  height: 15%;
-  background: orange;
-}
 
 .left_sidebar{
   height: 70%;
-  position: fixed;
+  position: absolute;
+  text-align: justify;
   left: 0;
+
   top: 15%;
   width: 15%;
   background-color: #def7f7; 
-  
-  
- 
+   
 }
+.left_sidebar h3{
+  text-align: center;
+  font-family:cursive;
+}
+
 .logo a{
   padding: 15px 25px;
   font-size: 40px;

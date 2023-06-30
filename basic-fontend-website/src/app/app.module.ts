@@ -17,6 +17,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { RightSidebarComponent } from './componnents/page-structure/right-sidebar/right-sidebar.component';
 import { LeftSidebarComponent } from './componnents/page-structure/left-sidebar/left-sidebar.component';
 import { ContentComponent } from './componnents/page-structure/content/content.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { ContentComponent } from './componnents/page-structure/content/content.c
     HttpClientModule,
     AppRoutingModule,
    ReactiveFormsModule,
+   ToastrModule.forRoot(),
    CommonModule  ],
   providers: [],
   bootstrap: [AppComponent]
