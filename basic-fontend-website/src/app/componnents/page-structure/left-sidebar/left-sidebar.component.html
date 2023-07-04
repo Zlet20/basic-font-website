@@ -1,12 +1,69 @@
-<div >
-    <nav class="left_sidebar">
-        <h3>menu</h3>
-        <div *ngIf="isLogin" style="border-radius: 25px; width: 50px; height: 50px; cursor: pointer;">
-            <img style="width: 50px; height: 50px; border-radius: 25p;" [src]="getUrlAvatar()" />
-         </div>
-        
+<div class="left_sidebar">
+        <nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="https://jbfarrow.com">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                             Dashboard
+                        </span>
+                    </a>
 
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart fa-2x"></i>
+                        <span class="nav-text">
+                            Market
+                        </span>
+                    </a>
 
-    </nav>
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-usd fa-2x"></i>
+                        <span class="nav-text">
+                            Sell List
+                        </span>
+                    </a>
+
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-cube fa-2x"></i>
+                        <span class="nav-text">
+                            Warehouse
+                        </span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <i class=" fa fa-regular fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            User
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-duotone fa-credit-card fa-2x"></i>
+                        <span class="nav-text">
+                            Paymennt
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-out fa-2x"></i>
+                        <span class="nav-text">
+                            Log out
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
 
 </div>
